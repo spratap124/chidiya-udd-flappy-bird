@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 1785237359}
   - component: {fileID: 1785237363}
   - component: {fileID: 1785237362}
+  - component: {fileID: 1785237364}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -529,6 +530,21 @@ MonoBehaviour:
   - {fileID: -1313328568595925985, guid: 89344c112f8aa4f79a982cc0f0194418, type: 3}
   - {fileID: -6354088396598390950, guid: 89344c112f8aa4f79a982cc0f0194418, type: 3}
   flapFramesPerSecond: 10
+--- !u!114 &1785237364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785237358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f4e2a91b3d4e5f8061728394a5b6c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleTag: Obstacle
+  gameplayCamera: {fileID: 519420031}
+  belowScreenPadding: 0.25
 --- !u!58 &1785237363
 CircleCollider2D:
   m_ObjectHideFlags: 0

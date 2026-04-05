@@ -11,8 +11,22 @@ public class BirdScript : MonoBehaviour
     [SerializeField] Sprite[] flapSprites;
     [SerializeField] float flapFramesPerSecond = 10f;
 
+    [Header("Game over")]
+    [SerializeField] float gameOverNoseDownAngle = -75f;
+    [SerializeField] float gameOverTiltSpeed = 220f;
+
     float _flapTimer;
     int _flapIndex;
+    bool _flapInputEnabled = true;
+    bool _gameOverFall;
+
+    public void LockFlapInput() => _flapInputEnabled = false;
+
+    public void BeginGameOverFall()
+    {
+        LockFlapInput();
+        _gameOverFall = true;
+    }
 
     void Awake()
     {
@@ -47,10 +61,22 @@ public class BirdScript : MonoBehaviour
             }
         }
 
-        if (jump)
+        if (_flapInputEnabled && jump)
             myRigidbody.linearVelocity = Vector2.up * flapStrength;
 
         AdvanceFlapAnimation();
+    }
+
+    void FixedUpdate()
+    {
+        if (!_gameOverFall || myRigidbody == null)
+            return;
+
+        float next = Mathf.MoveTowardsAngle(
+            myRigidbody.rotation,
+            gameOverNoseDownAngle,
+            gameOverTiltSpeed * Time.fixedDeltaTime);
+        myRigidbody.MoveRotation(next);
     }
 
     void AdvanceFlapAnimation()
