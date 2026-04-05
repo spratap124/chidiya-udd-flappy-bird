@@ -22,7 +22,7 @@ public class BirdScript : MonoBehaviour
 
     void Start()
     {
-        gameObject.name = "Chidiya";
+        gameObject.name = "Bird";
 
         if (spriteRenderer != null && flapSprites != null && flapSprites.Length > 0)
             spriteRenderer.sprite = flapSprites[0];
