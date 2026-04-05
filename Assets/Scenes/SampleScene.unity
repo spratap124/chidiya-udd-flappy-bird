@@ -483,7 +483,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5064401156898091283, guid: af62fac0cd3f54db5b8e70d23adbbf91, type: 3}
+  m_Sprite: {fileID: -8854917043217958591, guid: 89344c112f8aa4f79a982cc0f0194418, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -503,7 +503,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.96, y: 0.96, z: 0.96}
+  m_LocalScale: {x: 2.58, y: 2.58, z: 2.58}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -522,6 +522,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   myRigidbody: {fileID: 1785237359}
   flapStrength: 13
+  spriteRenderer: {fileID: 1785237360}
+  flapSprites:
+  - {fileID: -8854917043217958591, guid: 89344c112f8aa4f79a982cc0f0194418, type: 3}
+  - {fileID: -6350680871679060451, guid: 89344c112f8aa4f79a982cc0f0194418, type: 3}
+  - {fileID: -1313328568595925985, guid: 89344c112f8aa4f79a982cc0f0194418, type: 3}
+  - {fileID: -6354088396598390950, guid: 89344c112f8aa4f79a982cc0f0194418, type: 3}
+  flapFramesPerSecond: 10
 --- !u!58 &1785237363
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -556,8 +563,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.04, y: 0}
-  m_Radius: 2.63
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 1.54
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

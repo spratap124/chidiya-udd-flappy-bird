@@ -5,7 +5,7 @@ public class BambooSpawnerScript : MonoBehaviour
     public GameObject bambooPrefab;
     public float spawnRate;
     private float timer = 0;
-    public float heightOffset = 10;
+    public float heightOffset = 7;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,7 +18,7 @@ public class BambooSpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   // spawn rate is random between 2 and 5
-        spawnRate = Random.Range(3f, 7f);
+        spawnRate = Random.Range(5f, 12f);
         timer += Time.deltaTime;
         if (timer > spawnRate)
         {

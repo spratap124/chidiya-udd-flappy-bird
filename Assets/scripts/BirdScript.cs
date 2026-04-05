@@ -5,17 +5,31 @@ public class BirdScript : MonoBehaviour
 {
     public Rigidbody2D myRigidbody;
     public float flapStrength;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    [Header("Sprite animation")]
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Sprite[] flapSprites;
+    [SerializeField] float flapFramesPerSecond = 10f;
+
+    float _flapTimer;
+    int _flapIndex;
+
+    void Awake()
+    {
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     void Start()
     {
         gameObject.name = "Chidiya";
-        
+
+        if (spriteRenderer != null && flapSprites != null && flapSprites.Length > 0)
+            spriteRenderer.sprite = flapSprites[0];
     }
 
-    // Update is called once per frame
     void Update()
-    {   
-        // Check for jump input
+    {
         bool jump = false;
 
         if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
@@ -31,11 +45,27 @@ public class BirdScript : MonoBehaviour
                     break;
                 }
             }
-        } 
+        }
 
-        // Apply jump force if input is detected
         if (jump)
             myRigidbody.linearVelocity = Vector2.up * flapStrength;
+
+        AdvanceFlapAnimation();
+    }
+
+    void AdvanceFlapAnimation()
+    {
+        if (spriteRenderer == null || flapSprites == null || flapSprites.Length == 0)
+            return;
+
+        float interval = 1f / Mathf.Max(0.01f, flapFramesPerSecond);
+        _flapTimer += Time.deltaTime;
+        if (_flapTimer >= interval)
+        {
+            _flapTimer -= interval;
+            _flapIndex = (_flapIndex + 1) % flapSprites.Length;
+        }
+
+        spriteRenderer.sprite = flapSprites[_flapIndex];
     }
 }
- 
