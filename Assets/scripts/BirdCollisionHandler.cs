@@ -6,7 +6,7 @@ public class BirdCollisionHandler : MonoBehaviour
     [SerializeField] string obstacleTag = "Obstacle";
     [SerializeField] Camera gameplayCamera;
     [Tooltip("How far below the camera bottom edge the bird must be before the game freezes.")]
-    [SerializeField] float belowScreenPadding = 0.30f;
+    [SerializeField] float belowScreenPadding = 0.50f;
 
     public static event Action OnGameOver;
 

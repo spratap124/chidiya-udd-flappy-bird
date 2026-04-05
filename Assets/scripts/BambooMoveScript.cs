@@ -1,19 +1,20 @@
 using UnityEngine;
 
 public class BambooMoveScript : MonoBehaviour
-{   
-    public float moveSpeed = 5;
-    public float leftBound = -70;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+{
+    static float _sharedMoveSpeed = 5f;
 
-    // Update is called once per frame
+    public static float SharedMoveSpeed => _sharedMoveSpeed;
+
+    public static void ResetSharedMoveSpeed(float value) => _sharedMoveSpeed = value;
+
+    public static void AddSharedMoveSpeed(float delta) => _sharedMoveSpeed += delta;
+
+    public float leftBound = -70;
+
     void Update()
     {
-        transform.position += Vector3.left * (moveSpeed * Time.deltaTime);
+        transform.position += Vector3.left * (_sharedMoveSpeed * Time.deltaTime);
         if (transform.position.x < leftBound)
         {
             Debug.Log("Bamboo deleted");

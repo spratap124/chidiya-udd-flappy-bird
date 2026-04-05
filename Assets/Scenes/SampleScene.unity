@@ -370,8 +370,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   bambooPrefab: {fileID: 3019522341778518431, guid: 16770abff02ce40f2a7bfe300fc236a0, type: 3}
-  spawnRate: 2
   heightOffset: 7
+  minSpawnInterval: 5
+  maxSpawnInterval: 12
+  initialBambooSpeed: 5
+  bambooPerSpeedIncrease: 10
+  speedIncreaseAmount: 5
 --- !u!4 &621552524
 Transform:
   m_ObjectHideFlags: 0
